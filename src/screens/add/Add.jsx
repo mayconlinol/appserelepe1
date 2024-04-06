@@ -12,7 +12,7 @@ export default function Add() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: 'yellow',
     alignItems: 'center',
     justifyContent: 'center',
   },
