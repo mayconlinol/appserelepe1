@@ -6,9 +6,10 @@ import {Entypo} from '@expo/vector-icons'
 export default function ButtonAdd({size, color}){
     return(
         <View style={styles.container}>
-            <Entypo name="plus" color={color} size={size}/>
+            <Entypo name="plus" color={color} size={size}/>           
         </View>
     )
+
 }
     const styles = StyleSheet.create({
         container:{
