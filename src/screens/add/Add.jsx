@@ -3,7 +3,6 @@ import PopUp from './popup/PopUp';
 export default function Add() {
   return (
     <View style={styles.container}>
-      <Text style= {styles.title}>add kcal e agua</Text>
       <PopUp/>
     </View>
   );

@@ -1,13 +1,15 @@
-import { StyleSheet, Text, View } from 'react-native';
-
+import { StyleSheet, Text, View, TextInput} from 'react-native';
 export default function TelaAdd(){
 return(
  <View style={styles.conteiner}>
-   <Text style= {styles.popUp}>PopUp</Text>
+   <Text style= {styles.popUp}>
+   </Text>
+    <TextInput style={styles.input}></TextInput>
  </View>
 );
 }
 const styles = StyleSheet.create({
+  
     conteiner: {
         flex: .2,
         alignItems: 'center',
@@ -16,5 +18,9 @@ const styles = StyleSheet.create({
       popUp:{
         fontSize:24,
         fontWeight: 'bold',
+      },
+      input:{
+        backgroundColor: 'white',
+        width: '90%',
       }
 })
