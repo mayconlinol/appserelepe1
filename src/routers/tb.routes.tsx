@@ -8,7 +8,7 @@ import Add  from '../screens/add/Add';
 import Perfil  from '../screens/profile/Perfil';
 import Metas  from '../screens/meta/Metas';
 import Historico  from '../screens/history/Historico';
-import PopUp from '../screens/add/popup/PopUp';
+import MeuModal from '../screens/add/popup/PopUp';
 import ButtonAdd from '../components/buttonadd/ButtonAdd';
 const Tab = createBottomTabNavigator();
 
