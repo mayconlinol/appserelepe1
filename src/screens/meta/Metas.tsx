@@ -1,9 +1,9 @@
 import { StyleSheet, Text, View } from 'react-native';
 
-export default function Metas() {
+export default function Metas({}) {
   return (
     <View style={styles.container}>
-      <Text style= {styles.title}>Metas</Text>
+      <Text style= {styles.title} >Metas</Text>
     </View>
   );
 }

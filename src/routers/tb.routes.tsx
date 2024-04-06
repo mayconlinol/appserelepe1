@@ -9,6 +9,7 @@ import Perfil  from '../screens/profile/Perfil';
 import Metas  from '../screens/meta/Metas';
 import Historico  from '../screens/history/Historico';
 import PopUp from '../screens/add/popup/PopUp';
+import ButtonAdd from '../components/buttonadd/ButtonAdd';
 const Tab = createBottomTabNavigator();
 
 export default function TabsRoutes() {
@@ -26,7 +27,7 @@ export default function TabsRoutes() {
                 name='metas'
                 component={Metas}
                 options={{
-                    tabBarIcon: ({ color, size}) => <MaterialIcons name="auto-graph" size={24} color="black" />,
+                    tabBarIcon: ({ color, size}) => <MaterialIcons name="auto-graph" size={24} color={color} />,
                     tabBarLabel: ''
                 }}
             />
@@ -34,16 +35,18 @@ export default function TabsRoutes() {
                 name='Add'
                 component={Add}
                 options={{
-                    tabBarIcon: ({ color, size}) => <Feather name='plus' color={color} size={size}/>,
-                    tabBarLabel: ''
+                    tabBarLabel: '',
+                    tabBarIcon: ({ color, size}) => (<ButtonAdd size={size} color={color}/>),
+                    
             
                 }}
+            
             />
              <Tab.Screen
                 name='historico'
                 component={Historico}
                 options={{
-                    tabBarIcon: ({ color, size}) => <FontAwesome6 name="clock-rotate-left" size={24} color="black" />,
+                    tabBarIcon: ({ color, size}) => <FontAwesome6 name="clock-rotate-left" size={24} color={color} />,
                     tabBarLabel: ''
                 }}
             />
