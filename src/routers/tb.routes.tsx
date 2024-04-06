@@ -3,12 +3,12 @@ import { Feather } from '@expo/vector-icons';
 import { FontAwesome6 } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 
-import Home  from '../screens/Home';
-import Add  from '../screens/Add';
-import Perfil  from '../screens/Perfil';
-import Metas  from '../screens/Metas';
-import Historico  from '../screens/Historico';
-
+import Home  from '../screens/home/Home';
+import Add  from '../screens/add/Add';
+import Perfil  from '../screens/profile/Perfil';
+import Metas  from '../screens/meta/Metas';
+import Historico  from '../screens/history/Historico';
+import PopUp from '../screens/add/popup/PopUp';
 const Tab = createBottomTabNavigator();
 
 export default function TabsRoutes() {
@@ -36,6 +36,7 @@ export default function TabsRoutes() {
                 options={{
                     tabBarIcon: ({ color, size}) => <Feather name='plus' color={color} size={size}/>,
                     tabBarLabel: ''
+            
                 }}
             />
              <Tab.Screen
@@ -54,8 +55,10 @@ export default function TabsRoutes() {
                     tabBarLabel: ''
                 }}
             />
+            
         </Tab.Navigator>
     )
+    
 }
 /*
 ScreenOptions libera varias opçoes para customizar a tela.
