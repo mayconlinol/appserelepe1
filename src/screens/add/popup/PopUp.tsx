@@ -3,6 +3,7 @@ import { View, Text, Modal, TouchableOpacity, StyleSheet, Button } from 'react-n
 
 
 const MeuModal = ({ visible, onClose, navigation }) => {
+  const [modalVisible, setModalVisible] = useState(true);
   const [selectedOption, setSelectedOption] = useState(null);
   useEffect(() => {
     if (selectedOption === 'Opção 1') {
@@ -14,28 +15,34 @@ const MeuModal = ({ visible, onClose, navigation }) => {
   }, [selectedOption, navigation]);
 
   return (
+    <View style={{ marginTop: 22 }}>
     <Modal
-      animationType="slide"
-      transparent={true}
-      visible={visible}
-      onRequestClose={onClose}
-    >
+    animationType="slide"
+    transparent={true}
+    visible={modalVisible}
+    onRequestClose={() => {
+      setModalVisible(!modalVisible);
+    }}
+  >
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <View style={styles.conteiner}>
 
-          <TouchableOpacity onPress={() => onClose()}>
+         <TouchableOpacity
+              onPress={() => setModalVisible(!modalVisible)}
+              style={styles.closeButton}
+            >
             <Button title="Fechar" onPress={() => (onClose)} />
           </TouchableOpacity>
 
           <Text>Escolha uma opção:</Text>
-          <TouchableOpacity onPress={() => {
+          <TouchableOpacity onPress={() => {setModalVisible(!modalVisible)
             navigation.navigate('AddKcal');
             setTimeout(() => onClose('Opção 1'), 500);
           }}>
             <Text>Adicionar Calorias</Text>
 
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => {
+          <TouchableOpacity onPress={() => {setModalVisible(!modalVisible)
             navigation.navigate('AddWater')
             setTimeout(() => onClose('Opção 2'), 500);
           }}>
@@ -45,23 +52,38 @@ const MeuModal = ({ visible, onClose, navigation }) => {
         </View>
       </View>
     </Modal>
+     <Button
+        title="Mostrar Modal"
+        onPress={() => setModalVisible(true)}
+      />
+    </View>
   );
 };
-
-export default MeuModal;
 const styles = StyleSheet.create({
-
   conteiner: {
-    flex: .2,
-    alignItems: 'center',
-    justifyContent: 'center',
+    margin: 10,
     backgroundColor: 'white',
-    padding: 20,
-    borderRadius: 10
+    borderRadius: 20,
+    padding: 115,
+    position: 'relative',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
   },
-  popUp: {
-    fontSize: 24,
-    fontWeight: 'bold',
+  closeButton: {
+    marginBottom: 15,
+    backgroundColor: '#2196F3',
+    borderRadius: 20,
+    padding: 10,
+    elevation: 2,
   },
+  options:{
 
-})
+  }
+});
+export default MeuModal;

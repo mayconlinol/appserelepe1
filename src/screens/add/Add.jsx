@@ -4,11 +4,10 @@ import MeuModal from './popup/PopUp';
 
 const App = ({navigation}) => {
   const [modalVisible, setModalVisible] = useState(false);
-
-  /* const [selectedOption, setSelectedOption] = useState(''); */
+  const [selectedOption, setSelectedOption] = useState('');
 
   const handleModalClose = (option) => {
-    /* setSelectedOption(option); */
+    setSelectedOption(option);
     setModalVisible(false);
     if (option === 'Opção 1') {
       navigation.navigate('AddKcal');
