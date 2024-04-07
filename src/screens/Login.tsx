@@ -11,7 +11,7 @@ export default function Add() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'blue',
+    backgroundColor: 'D9D9D9',
     alignItems: 'center',
     justifyContent: 'center',
   },

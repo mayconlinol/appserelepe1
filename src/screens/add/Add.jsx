@@ -4,7 +4,12 @@ import MeuModal from './popup/PopUp';
 
 const App = ({navigation}) => {
   const [modalVisible, setModalVisible] = useState(false);
+<<<<<<< Updated upstream
   const [selectedOption, setSelectedOption] = useState('');
+=======
+
+  const [selectedOption, setSelectedOption] = useState(''); 
+>>>>>>> Stashed changes
 
   const handleModalClose = (option) => {
     setSelectedOption(option);
@@ -20,9 +25,10 @@ const App = ({navigation}) => {
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <Button title="Abrir Modal" onPress={() => setModalVisible(true)} />
       <MeuModal visible={modalVisible} onClose={handleModalClose} navigation={navigation} />
-      {/* {selectedOption ? <Text>Você escolheu: {selectedOption}</Text> : null} */}
+      {selectedOption ? <Text>Você escolheu: {selectedOption}</Text> : null}
     </View>
   );
 };
 
 export default App;
+export const setModalVisible = () => {};
