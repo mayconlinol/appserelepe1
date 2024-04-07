@@ -1,4 +1,5 @@
 
+
 import * as React from 'react';
 import { FAB, Portal, PaperProvider } from 'react-native-paper';
 
@@ -41,4 +42,5 @@ const MeuModal = () => {
 };
 
 export default MeuModal;
+
 
