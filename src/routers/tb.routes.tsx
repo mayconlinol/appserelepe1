@@ -12,6 +12,7 @@ import ButtonAdd from '../components/buttonadd/ButtonAdd';
 import AddKcal from '../screens/add/options/AddKcal';
 import AddWater from '../screens/add/options/AddAgua'; //;
 import MeuModal from '../screens/add/popup/PopUp';
+import AuthScreen from '../screens/login/login'
 /* import MeuModal from '../screens/add/popup/PopUp';
  */
 const Tab = createBottomTabNavigator();
@@ -54,7 +55,7 @@ export default function TabsRoutes() {
             />
             <Tab.Screen
                 name='perfil'
-                component={Perfil}
+                component={AuthScreen}
                 options={{
                     tabBarIcon: ({ color, size }) => <Feather name='user' color={color} size={size} />,
                     tabBarLabel: ''
