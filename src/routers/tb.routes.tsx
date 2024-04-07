@@ -3,62 +3,77 @@ import { Feather } from '@expo/vector-icons';
 import { FontAwesome6 } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 
-import Home  from '../screens/home/Home';
-import Add  from '../screens/add/Add';
-import Perfil  from '../screens/profile/Perfil';
-import Metas  from '../screens/meta/Metas';
-import Historico  from '../screens/history/Historico';
-import PopUp from '../screens/add/popup/PopUp';
+import Home from '../screens/home/Home';
+import Add from '../screens/add/Add';
+import Perfil from '../screens/profile/Perfil';
+import Metas from '../screens/meta/Metas';
+import Historico from '../screens/history/Historico';
+import ButtonAdd from '../components/buttonadd/ButtonAdd';
+import AddKcal from '../screens/add/options/AddKcal';
+import AddWater from '../screens/add/options/AddAgua'; //;
+import MeuModal from '../screens/add/popup/PopUp';
+/* import MeuModal from '../screens/add/popup/PopUp';
+ */
 const Tab = createBottomTabNavigator();
 
 export default function TabsRoutes() {
     return (
-        <Tab.Navigator screenOptions={{headerShown: false}} >
+        <Tab.Navigator screenOptions={{ headerShown: false }} >
             <Tab.Screen
                 name='Home'
                 component={Home}
                 options={{
-                    tabBarIcon: ({ color, size}) => <Feather name="home" color={color} size={size}/>,
+                    tabBarIcon: ({ color, size }) => <Feather name="home" color={color} size={size} />,
                     tabBarLabel: ''
                 }}
             />
-             <Tab.Screen
+            <Tab.Screen
                 name='metas'
                 component={Metas}
                 options={{
-                    tabBarIcon: ({ color, size}) => <MaterialIcons name="auto-graph" size={24} color="black" />,
+                    tabBarIcon: ({ color, size }) => <MaterialIcons name="auto-graph" size={24} color={color} />,
                     tabBarLabel: ''
                 }}
             />
             <Tab.Screen
                 name='Add'
-                component={Add}
+                component={MeuModal} //esta direcionando para a pagina Addkcal, mudar para voltar ao modal
                 options={{
-                    tabBarIcon: ({ color, size}) => <Feather name='plus' color={color} size={size}/>,
-                    tabBarLabel: ''
-            
+                    tabBarLabel: '',
+                    tabBarIcon: ({ color, size }) => (<ButtonAdd size={size} color={color} />),
                 }}
+
             />
-             <Tab.Screen
+            <Tab.Screen
                 name='historico'
                 component={Historico}
                 options={{
-                    tabBarIcon: ({ color, size}) => <FontAwesome6 name="clock-rotate-left" size={24} color="black" />,
+                    tabBarIcon: ({ color, size }) => <FontAwesome6 name="clock-rotate-left" size={24} color={color} />,
                     tabBarLabel: ''
                 }}
             />
-             <Tab.Screen
+            <Tab.Screen
                 name='perfil'
                 component={Perfil}
                 options={{
-                    tabBarIcon: ({ color, size}) => <Feather name='user' color={color} size={size}/>,
+                    tabBarIcon: ({ color, size }) => <Feather name='user' color={color} size={size} />,
                     tabBarLabel: ''
                 }}
             />
-            
+            <Tab.Screen
+                name="AddWater"
+                component={AddWater}
+                options={{ tabBarButton: () => null }}
+            />
+            <Tab.Screen
+                name="AddKcal"
+                component={AddKcal}
+                options={{ tabBarButton: () => null }}
+            />
+
         </Tab.Navigator>
     )
-    
+
 }
 /*
 ScreenOptions libera varias opçoes para customizar a tela.

@@ -1,23 +1,30 @@
-import { StyleSheet, Text, View } from 'react-native';
-import PopUp from './popup/PopUp';
-export default function Add() {
+import React, { useState } from 'react';
+import { View, Button } from 'react-native';
+import MeuModal from './popup/PopUp';
+
+const App = ({navigation}) => {
+  const [modalVisible, setModalVisible] = useState(false);
+
+  const [selectedOption, setSelectedOption] = useState(''); 
+
+  const handleModalClose = (option) => {
+    setSelectedOption(option);
+    setModalVisible(false);
+    if (option === 'Opção 1') {
+      navigation.navigate('AddKcal');
+    } else if (option === 'Opção 2') {
+      navigation.navigate('AddWater');
+    }
+  };
+
   return (
-    <View style={styles.container}>
-      <Text style= {styles.title}>add kcal e agua</Text>
-      <PopUp/>
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Button title="Abrir Modal" onPress={() => setModalVisible(true)} />
+      <MeuModal visible={modalVisible} onClose={handleModalClose} navigation={navigation} />
+      {selectedOption ? <Text>Você escolheu: {selectedOption}</Text> : null}
     </View>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'white',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title:{
-    fontSize:24,
-    fontWeight: 'bold',
-  }
-});
+export default App;
+export const setModalVisible = () => {};
