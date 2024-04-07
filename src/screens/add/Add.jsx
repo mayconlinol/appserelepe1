@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+/* import React, { useState } from 'react';
 import { View, Button } from 'react-native';
 import MeuModal from './popup/PopUp';
 
@@ -20,4 +20,26 @@ const App = () => {
   );
 };
 
-export default App;
+export default App; */
+
+import { StyleSheet, Text, View } from 'react-native';
+
+export default function Add() {
+  return (
+    <View style={styles.container}>
+      <Text style= {styles.title}>olha</Text>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: 'orange',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  title:{
+    fontSize:24,
+    fontWeight: 'bold',
+  }});
