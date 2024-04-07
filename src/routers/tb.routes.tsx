@@ -4,7 +4,7 @@ import { FontAwesome6 } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 
 import Home from '../screens/home/Home';
-import Add from '../screens/add/Add';
+
 import Perfil from '../screens/profile/Perfil';
 import Metas from '../screens/meta/Metas';
 import Historico from '../screens/history/Historico';
