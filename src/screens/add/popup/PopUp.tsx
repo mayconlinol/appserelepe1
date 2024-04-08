@@ -1,15 +1,13 @@
-
+/* 
 import { useNavigation } from '@react-navigation/native';
 import * as React from 'react';
 import { FAB, Portal, PaperProvider } from 'react-native-paper';
-import { StyleSheet } from 'react-native';
 
 const MeuModal = () => {
   const navigation = useNavigation();
   const [state, setState] = React.useState({ open: false });
   const onStateChange = ({ open }) => setState({ open });
   const { open } = state;
-
   return (
     <PaperProvider>
       <Portal>
@@ -30,15 +28,10 @@ const MeuModal = () => {
             },
           ]}
           onStateChange={onStateChange}
-          onPress={() => {
-            if (open) {
-              // do something if the speed dial is open
-            }
-          }}
         />
       </Portal>
     </PaperProvider>
   );
 };
 
-export default MeuModal;
+export default MeuModal; */

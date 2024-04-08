@@ -10,7 +10,7 @@ import Historico from '../screens/history/Historico';
 import ButtonAdd from '../components/buttonadd/ButtonAdd';
 import AddKcal from '../screens/add/options/AddKcal';
 import AddWater from '../screens/add/options/AddAgua';
-import MeuModal from '../screens/add/popup/PopUp';
+/* import MeuModal from '../screens/add/popup/PopUp'; */
 
 const Tab = createBottomTabNavigator();
 
@@ -35,10 +35,10 @@ export default function TabsRoutes() {
             />
             <Tab.Screen
                 name='Add'
-                component={MeuModal} 
+                component={ButtonAdd} 
                 options={{
                     tabBarLabel: '',
-                    tabBarIcon: ({ color, size }) => (<ButtonAdd size={size} color={color} />),
+                    tabBarIcon: ({}) => (<ButtonAdd/>),
                 }}
 
             />
