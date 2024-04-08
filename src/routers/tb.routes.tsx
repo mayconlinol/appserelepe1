@@ -11,8 +11,12 @@ import Historico from '../screens/history/Historico';
 import ButtonAdd from '../components/buttonadd/ButtonAdd';
 import AddKcal from '../screens/add/options/AddKcal';
 import AddWater from '../screens/add/options/AddAgua'; //;
+<<<<<<< Updated upstream
 import MeuModal from '../screens/add/popup/PopUp';
 import AuthScreen from '../screens/login/login'
+=======
+//import MeuModal from '../screens/add/popup/PopUp';
+>>>>>>> Stashed changes
 /* import MeuModal from '../screens/add/popup/PopUp';
  */
 const Tab = createBottomTabNavigator();
@@ -38,7 +42,7 @@ export default function TabsRoutes() {
             />
             <Tab.Screen
                 name='Add'
-                component={MeuModal} //esta direcionando para a pagina Addkcal, mudar para voltar ao modal
+                component={AddWater} //esta direcionando para a pagina Addkcal, mudar para voltar ao modal
                 options={{
                     tabBarLabel: '',
                     tabBarIcon: ({ color, size }) => (<ButtonAdd size={size} color={color} />),
