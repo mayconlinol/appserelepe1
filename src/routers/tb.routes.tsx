@@ -62,6 +62,7 @@ export default function TabsRoutes() {
                 name="AddWater"
                 component={AddWater}
                 options={{ tabBarButton: () => null }}
+                
             />
             <Tab.Screen
                 name="AddKcal"
