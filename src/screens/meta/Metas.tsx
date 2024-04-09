@@ -1,9 +1,9 @@
 import { StyleSheet, Text, View } from 'react-native';
 
-export default function Metas({}) {
+export default function Metas() {
   return (
     <View style={styles.container}>
-      <Text style= {styles.title} >Metas</Text>
+      <Text style= {styles.title}>Metas</Text>
     </View>
   );
 }
@@ -11,7 +11,7 @@ export default function Metas({}) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'D9D9D9',
+    backgroundColor: 'yellow',
     alignItems: 'center',
     justifyContent: 'center',
   },

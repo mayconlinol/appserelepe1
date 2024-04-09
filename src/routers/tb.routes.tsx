@@ -4,14 +4,21 @@ import { FontAwesome6 } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 
 import Home from '../screens/home/Home';
+import Add from '../screens/add/Add';
 import Perfil from '../screens/profile/Perfil';
 import Metas from '../screens/meta/Metas';
 import Historico from '../screens/history/Historico';
 import ButtonAdd from '../components/buttonadd/ButtonAdd';
 import AddKcal from '../screens/add/options/AddKcal';
-import AddWater from '../screens/add/options/AddAgua';
-/* import MeuModal from '../screens/add/popup/PopUp'; */
-
+import AddWater from '../screens/add/options/AddAgua'; //;
+<<<<<<< Updated upstream
+import MeuModal from '../screens/add/popup/PopUp';
+import AuthScreen from '../screens/login/login'
+=======
+//import MeuModal from '../screens/add/popup/PopUp';
+>>>>>>> Stashed changes
+/* import MeuModal from '../screens/add/popup/PopUp';
+ */
 const Tab = createBottomTabNavigator();
 
 export default function TabsRoutes() {
@@ -29,16 +36,16 @@ export default function TabsRoutes() {
                 name='metas'
                 component={Metas}
                 options={{
-                    tabBarIcon: ({ color}) => <MaterialIcons name="auto-graph" size={24} color={color} />,
+                    tabBarIcon: ({ color, size }) => <MaterialIcons name="auto-graph" size={24} color={color} />,
                     tabBarLabel: ''
                 }}
             />
             <Tab.Screen
                 name='Add'
-                component={ButtonAdd} 
+                component={AddWater} //esta direcionando para a pagina Addkcal, mudar para voltar ao modal
                 options={{
                     tabBarLabel: '',
-                    tabBarIcon: ({}) => (<ButtonAdd/>),
+                    tabBarIcon: ({ color, size }) => (<ButtonAdd size={size} color={color} />),
                 }}
 
             />
@@ -46,13 +53,13 @@ export default function TabsRoutes() {
                 name='historico'
                 component={Historico}
                 options={{
-                    tabBarIcon: ({ color}) => <FontAwesome6 name="clock-rotate-left" size={24} color={color} />,
+                    tabBarIcon: ({ color, size }) => <FontAwesome6 name="clock-rotate-left" size={24} color={color} />,
                     tabBarLabel: ''
                 }}
             />
             <Tab.Screen
                 name='perfil'
-                component={Perfil}
+                component={AuthScreen}
                 options={{
                     tabBarIcon: ({ color, size }) => <Feather name='user' color={color} size={size} />,
                     tabBarLabel: ''
@@ -62,7 +69,6 @@ export default function TabsRoutes() {
                 name="AddWater"
                 component={AddWater}
                 options={{ tabBarButton: () => null }}
-                
             />
             <Tab.Screen
                 name="AddKcal"
@@ -77,4 +83,6 @@ export default function TabsRoutes() {
 /*
 ScreenOptions libera varias opçoes para customizar a tela.
 Para mais informações, veja a documentação do react-navigation/stack:https://reactnavigation.org/docs/screen-options/
+
+
 */
