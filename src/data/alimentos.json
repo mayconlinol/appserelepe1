@@ -1,0 +1,23 @@
+[
+    {"nome": "Maçã", "porcao": "1 média", "valorkcal": 95},
+    {"nome": "Banana", "porcao": "1 média", "valorkcal": 105},
+    {"nome": "Laranja", "porcao": "1 média", "valorkcal": 62},
+    {"nome": "Morango", "porcao": "1 xícara", "valorkcal": 49},
+    {"nome": "Abacate", "porcao": "1/4 médio", "valorkcal": 80},
+    {"nome": "Arroz", "porcao": "1 xícara", "valorkcal": 205},
+    {"nome": "Feijão", "porcao": "1 xícara", "valorkcal": 239},
+    {"nome": "Frango", "porcao": "100g", "valorkcal": 165},
+    {"nome": "Peixe", "porcao": "100g", "valorkcal": 206},
+    {"nome": "Carne bovina", "porcao": "100g", "valorkcal": 250},
+    {"nome": "Ovo", "porcao": "1 grande", "valorkcal": 78},
+    {"nome": "Leite", "porcao": "1 xícara", "valorkcal": 103},
+    {"nome": "Queijo", "porcao": "1 fatia", "valorkcal": 113},
+    {"nome": "Pão", "porcao": "1 fatia", "valorkcal": 79},
+    {"nome": "Batata", "porcao": "1 média", "valorkcal": 130},
+    {"nome": "Tomate", "porcao": "1 médio", "valorkcal": 22},
+    {"nome": "Cenoura", "porcao": "1 média", "valorkcal": 25},
+    {"nome": "Brócolis", "porcao": "1 xícara", "valorkcal": 55},
+    {"nome": "Espinafre", "porcao": "1 xícara", "valorkcal": 7},
+    {"nome": "Alface", "porcao": "1 xícara", "valorkcal": 5}
+  ]
+  
