@@ -3,74 +3,58 @@ import {
   Text,
   View,
   TouchableOpacity,
-  TextInput,
-  Platform,
-  Dimensions,
-  Alert,
 } from "react-native";
 import React, { useState, useEffect } from "react";
 import Colors from "../../../constants/Colors";
-import { Feather } from "@expo/vector-icons";
 import { auth, db } from "../../../firebase/firebase";
-import { doc, getDoc, where } from "firebase/firestore";
+import { doc, getDoc } from "firebase/firestore";
 import { getAuth, signOut, } from "firebase/auth";
-import { isEqualsGreaterThanToken } from "typescript";
-import { collection, getDocs } from "firebase/firestore";
+
 
 export default function Dashboard({ navigation }: { navigation: any }) {
   const [userName, setUserName] = useState('');
   const [email, setEmail] = useState('');
-  const [userInfo, setUserInfo] = useState<any | undefined>(null);
+  /* const [userInfo, setUserInfo] = useState<any | undefined>(null); */
   const handleSignout = async () => {
 
 
-signOut(auth).then(() => {
-  // Sign-out successful.
-}).catch((error) => {
-  // An error happened.
-});
+    signOut(auth).then(() => {
+      // Sign-out successful.
+    }).catch((error) => {
+      // An error happened.
+    });
   };
-  const Modal = () => {
-    Alert.alert("Auth App", "Do you really want to logout", [
-      {
-        text: "Cancel",
-        onPress: () => console.log("Cancel Pressed"),
-      },
-      { text: "Logout", onPress: handleSignout },
-    ]);
-  };
-
   const getData = async () => {
     const auth = getAuth();
     const user = auth.currentUser;
-if (user) {
- // Recupere o documento do usuário no Firestore
- const userDocRef = doc(db, 'users', user.uid); // Substitua 'Users' pelo nome da sua coleção
- const userDocSnap = await getDoc(userDocRef);
+    if (user) {
+      // Recupere o documento do usuário no Firestore
+      const userDocRef = doc(db, 'users', user.uid); // Substitua 'Users' pelo nome da sua coleção
+      const userDocSnap = await getDoc(userDocRef);
 
- if (userDocSnap.exists()) {
-   const userData = userDocSnap.data();
-   setUserName(userData?.Name); // Ajuste o nome do campo conforme sua estrutura de dados
-   console.log('Nome do usuário:', userName);
-   // Agora você pode usar o nome do usuário onde precisar
- } else {
-   console.log('Documento do usuário não encontrado.');
- }
-} else {
- console.log('Usuário não autenticado.');
-}
- // Get the current user
+      if (userDocSnap.exists()) {
+        const userData = userDocSnap.data();
+        setUserName(userData?.Name); // Ajuste o nome do campo conforme sua estrutura de dados
+        console.log('Nome do usuário:', userName);
+        // Agora você pode usar o nome do usuário onde precisar
+      } else {
+        console.log('Documento do usuário não encontrado.');
+      }
+    } else {
+      console.log('Usuário não autenticado.');
+    }
+    // Get the current user
     if (user) {
       // Fetch the user's email
       setEmail(user.email);
       console.log(email)
-}}
+    }
+  }
 
   useEffect(() => {
     getData();
   }, []);
   return (
-    
     <View style={styles.container}>
       <Text style={{ fontSize: 25 }}>{userName}</Text>
       <Text style={{ fontSize: 25 }}>{email}</Text>
@@ -98,6 +82,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     width: 200,
-    marginTop: 30,
+    marginTop: 50,
   },
 });

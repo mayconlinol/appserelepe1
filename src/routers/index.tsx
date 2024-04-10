@@ -3,7 +3,7 @@ import TabsRoutes from './tb.routes';
 
 export default function Routes(){
     return (
-        <NavigationContainer>
+        <NavigationContainer independent={true}>
             <TabsRoutes/>
         </NavigationContainer>
     )

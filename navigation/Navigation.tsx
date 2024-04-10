@@ -23,7 +23,7 @@ export default function Navigation() {
 
   return (
     //   {user ? <AuthStack /> : <InitialScreenOnStart />}
-    <NavigationContainer>
+    <NavigationContainer independent={true}>
       <Stack.Navigator initialRouteName="InitialScreenOnStart">
         {user ? (
           <Stack.Screen
