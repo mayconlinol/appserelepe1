@@ -35,7 +35,8 @@ export default function Dashboard({ navigation }: { navigation: any }) {
 
       if (userDocSnap.exists()) {
         const userData = userDocSnap.data();
-        setUserName(userData?.Name); // Ajuste o nome do campo conforme sua estrutura de dados
+        setUserName(userData?.Name); 
+
         // Agora você pode usar o nome do usuário onde precisar
       } else {
         Alert.alert('Documento do usuário não encontrado.');
