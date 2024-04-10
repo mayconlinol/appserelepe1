@@ -1,7 +1,9 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import Dashboard from "../src/screens/login/Dashboard";
+
 import Profile from "../src/screens/login/Profile";
+import Routes from '../src/routers/index';
+
 
 const Stack = createNativeStackNavigator();
 
@@ -10,7 +12,7 @@ export default function AuthStack() {
     <Stack.Navigator>
       <Stack.Screen
         name="Dashboard"
-        component={Dashboard}
+        component={Routes}
         options={{
           headerShown: false,
         }}
