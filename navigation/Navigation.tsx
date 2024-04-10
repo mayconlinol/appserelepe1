@@ -16,7 +16,6 @@ export default function Navigation() {
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
-      console.log("user", user);
       setUser(user);
     });
   }, []);

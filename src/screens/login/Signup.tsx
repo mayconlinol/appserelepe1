@@ -46,8 +46,8 @@ export default function Signup({ navigation }: { navigation: any }) {
         });
       })
       .then(() => alert("account created successfully 🎉"))
-      .catch((err: any) => {
-        alert(err.meassage);
+      .catch((error: any) => {
+        alert(error.message);
       });
   };
 
