@@ -7,6 +7,7 @@ import {
   TextInput,
   TouchableOpacity,
   ScrollView,
+  Alert,
 } from "react-native";
 import React, { useState } from "react";
 import Colors from "../../constants/Colors";
@@ -20,7 +21,7 @@ export default function ForgotPassword() {
   const handlePassword = async () => {
     await sendPasswordResetEmail(auth, email)
       .then(() => alert("password reset email sent 🚀"))
-      .catch((error: any) => console.log(error.message));
+      .catch((error: any) => Alert.alert(error.message));
   };
   return (
     <View style={styles.container}>

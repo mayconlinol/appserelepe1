@@ -37,8 +37,8 @@ export default function Login({ navigation }: { navigation: any }) {
         setLoading(false);
         alert("login successful :)");
       })
-      .catch((err: any) => {
-        alert(err.meassage);
+      .catch((error: any) => {
+        alert(error.message);
       });
   };
 

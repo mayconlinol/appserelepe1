@@ -46,8 +46,8 @@ export default function Signup({ navigation }: { navigation: any }) {
         });
       })
       .then(() => alert("account created successfully 🎉"))
-      .catch((err: any) => {
-        alert(err.meassage);
+      .catch((error: any) => {
+        alert(error.message);
       });
   };
 
@@ -85,7 +85,7 @@ export default function Signup({ navigation }: { navigation: any }) {
             style={styles.emailInput}
             placeholder="Enter your phone number"
             value={phone?.toString()}
-            keyboardType="numeric"
+            inputMode="numeric"
             onChangeText={(text) => setPhone(text)}
           />
         </View>

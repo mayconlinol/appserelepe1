@@ -16,13 +16,11 @@ export default function Navigation() {
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
-      console.log("user", user);
       setUser(user);
     });
   }, []);
 
   return (
-    //   {user ? <AuthStack /> : <InitialScreenOnStart />}
     <NavigationContainer independent={true}>
       <Stack.Navigator initialRouteName="InitialScreenOnStart">
         {user ? (
