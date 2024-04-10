@@ -3,6 +3,7 @@ import {
   Text,
   View,
   TouchableOpacity,
+  Alert,
 } from "react-native";
 import React, { useState, useEffect } from "react";
 import Colors from "../../constants/Colors";
@@ -34,20 +35,20 @@ export default function Dashboard({ navigation }: { navigation: any }) {
 
       if (userDocSnap.exists()) {
         const userData = userDocSnap.data();
-        setUserName(userData?.Name); // Ajuste o nome do campo conforme sua estrutura de dados
-        console.log('Nome do usuário:', userName);
+        setUserName(userData?.Name); 
+
         // Agora você pode usar o nome do usuário onde precisar
       } else {
-        console.log('Documento do usuário não encontrado.');
+        Alert.alert('Documento do usuário não encontrado.');
       }
     } else {
-      console.log('Usuário não autenticado.');
+      Alert.alert('Usuário não autenticado.');
     }
     // Get the current user
     if (user) {
       // Fetch the user's email
       setEmail(user.email);
-      console.log(email)
+      
     }
   }
 
