@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, TextInput, Button, Text, ScrollView, TouchableOpacity } from 'react-native';
+import { View, TextInput, Button, Text, ScrollView, TouchableOpacity, StyleSheet } from 'react-native';
 
 
 const AddWater = () => {
@@ -26,10 +26,10 @@ const AddWater = () => {
 
 
   return (
-    <View style={{ padding: 20 }}>
+    <View style={styles.container}>
       <Text style={{ marginTop: 20 }}>Soma: {sum}ML</Text>
       <TextInput
-        style={{ height: 40, borderColor: 'gray', borderWidth: 1, marginBottom: 20 }}
+        style={styles.textInput}
         onChangeText={text => setValue(text)}
         value={value}
         keyboardType="numeric"
@@ -41,7 +41,7 @@ const AddWater = () => {
       <Text style={{ marginTop: 20 }}>Histórico:</Text>
       <ScrollView style={{ maxHeight: 200 }}>
         {history.map((item, index) => (
-          <View key={index} style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+          <View key={index} style={styles.historyItem}>
             <Text>{item.value}ML</Text>
             <TouchableOpacity onPress={() => handleDelete(item.id)}>
               <Text style={{ color: 'red' }}>Excluir</Text>
@@ -52,6 +52,22 @@ const AddWater = () => {
     </View>
   );
 };
-
+const styles = StyleSheet.create({
+  container: {
+    padding: 20,
+    marginTop: 50,
+  },
+  textInput: {
+    height: 40,
+    borderColor: 'gray',
+    borderWidth: 1,
+    marginBottom: 20,
+  },
+  historyItem: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+});
 
 export default AddWater;

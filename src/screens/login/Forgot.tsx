@@ -9,8 +9,8 @@ import {
   ScrollView,
 } from "react-native";
 import React, { useState } from "react";
-import Colors from "../../../constants/Colors";
-import { auth } from "../../../firebase/firebase";
+import Colors from "../../constants/Colors";
+import { auth } from "../../firebase/firebase";
 import { Feather } from "@expo/vector-icons";
 import { sendPasswordResetEmail } from "firebase/auth";
 
@@ -26,7 +26,7 @@ export default function ForgotPassword() {
     <View style={styles.container}>
       <View style={styles.imageContainer}>
         <Image
-          source={require("../../../assets/forgot.png")}
+          source={require("../../assets/forgot.png")}
           style={{ width: 300, height: 220 }}
         />
       </View>

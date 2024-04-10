@@ -1,8 +1,8 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 
-import Profile from "../src/screens/login/Profile";
-import Routes from '../src/routers/index';
+import Profile from "../screens/login/Profile";
+import Routes from '../routers/index';
 
 
 const Stack = createNativeStackNavigator();

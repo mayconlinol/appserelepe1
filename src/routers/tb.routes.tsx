@@ -4,18 +4,13 @@ import { FontAwesome6 } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 
 import Home from '../screens/home/Home';
-import Add from '../screens/add/Add';
-import Perfil from '../screens/profile/Perfil';
 import Metas from '../screens/meta/Metas';
 import Historico from '../screens/history/Historico';
 import ButtonAdd from '../components/buttonadd/ButtonAdd';
 import AddKcal from '../screens/add/options/AddKcal';
-import AddWater from '../screens/add/options/AddAgua'; //;
-import MeuModal from '../screens/add/popup/PopUp';
+import AddWater from '../screens/add/options/AddAgua';
 import Dashboard from '../screens/login/Dashboard';
-//import MeuModal from '../screens/add/popup/PopUp';
-/* import MeuModal from '../screens/add/popup/PopUp';
- */
+
 const Tab = createBottomTabNavigator();
 
 export default function TabsRoutes() {
@@ -39,7 +34,7 @@ export default function TabsRoutes() {
             />
             <Tab.Screen
                 name='Add'
-                component={AddWater} 
+                component={AddKcal} 
                 options={{
                     tabBarLabel: '',
                     tabBarIcon: ({ color, size }) => (<ButtonAdd size={size} color={color} />),

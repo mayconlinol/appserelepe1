@@ -5,8 +5,8 @@ import {
   TouchableOpacity,
 } from "react-native";
 import React, { useState, useEffect } from "react";
-import Colors from "../../../constants/Colors";
-import { auth, db } from "../../../firebase/firebase";
+import Colors from "../../constants/Colors";
+import { auth, db } from "../../firebase/firebase";
 import { doc, getDoc } from "firebase/firestore";
 import { getAuth, signOut, } from "firebase/auth";
 
