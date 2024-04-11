@@ -1,66 +1,97 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
+import { View, Text, TextInput, Button, StyleSheet, TouchableOpacity, KeyboardAvoidingView, Platform, ScrollView } from 'react-native';
 import alimentos from '../../../data/alimentos.json';
 
 const AddKcal = () => {
   const [inputText, setInputText] = useState('');
   const [history, setHistory] = useState([]);
-  const [suggestions, setSuggestions] = useState([]);
+  const [suggestions, setSuggestions] = useState(alimentos.slice(0, 10));
 
-  const handleAddToHistory = () => {
-    const item = alimentos.find(alimento => alimento.nome === inputText);
-    if (item) {
-      const newHistory = [...history, item];
-      setHistory(newHistory);
-      setInputText('');
-      setSuggestions([]);
+  const handleAddToHistory = (item) => {
+    setHistory(currentHistory => {
+      const newHistory = [...currentHistory, item];
       const sum = newHistory.reduce((total, { valorkcal }) => total + valorkcal, 0);
       setTotalKcal(sum);
-    }
+      return newHistory;
+    });
+    setInputText('');
   };
-
+  
+  function removeDiacritics(str) {
+    return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  }
+  
   // Adicione este estado para armazenar a soma total de kcal
   const [totalKcal, setTotalKcal] = useState(0);
   const handleInputChange = text => {
     setInputText(text);
-    const filteredAlimentos = alimentos.filter(alimento => alimento.nome.toLowerCase().includes(text.toLowerCase()));
-    setSuggestions(filteredAlimentos);
+    if (text === '') {
+      setSuggestions(alimentos.slice(0, 10));
+    } else {
+      let filteredAlimentos = alimentos.filter(alimento => removeDiacritics(alimento.nome.toLowerCase()).includes(removeDiacritics(text.toLowerCase())));
+      if (filteredAlimentos.length < 10) {
+        const additionalItems = alimentos.filter(alimento => !filteredAlimentos.includes(alimento)).slice(0, 10 - filteredAlimentos.length);
+        filteredAlimentos = [...filteredAlimentos, ...additionalItems];
+      }
+      setSuggestions(filteredAlimentos.slice(0, 10));
+    }
   };
+  
+  
 
-  return (
-    <View style={styles.container}>
-      <TextInput
-        style={styles.input}
-        value={inputText}
-        onChangeText={handleInputChange}
-        placeholder="Digite o nome do alimento"
-        autoCorrect={false}
-        autoCapitalize="none"
-      />
-      {suggestions.length > 0 && (
-        <View style={styles.suggestionsContainer}>
-          {suggestions.slice(0, 5).map((suggestion, index) => (
-            <Text key={index} style={styles.suggestionItem} onPress={() => setInputText(suggestion.nome)}>
-              {suggestion.nome}
+return (
+    <KeyboardAvoidingView
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      style={styles.container}
+    >
+      <View >
+      <Text>Total de kcal: {totalKcal} Kcal</Text>
+        <TextInput
+          style={styles.input}
+          value={inputText}
+          onChangeText={handleInputChange}
+          placeholder="Digite o nome do alimento"
+          autoCorrect={false}
+          autoCapitalize="none"
+        />
+        <Button title="Add to history" onPress={() => {
+  const selectedItem = alimentos.find(alimento => removeDiacritics(alimento.nome.toLowerCase()) === removeDiacritics(inputText.toLowerCase()));
+  if (selectedItem) {
+    handleAddToHistory(selectedItem);
+  }
+}} />
+
+      </View>
+      <View style={styles.suggestionsTop}>
+        {suggestions.length > 0 && (
+          <View style={styles.suggestionsContainer}>
+            {suggestions.map((suggestion, index) => (
+              <View key={index} style={styles.suggestionItem}>
+                <Text onPress={() => setInputText(suggestion.nome)}>
+                  {suggestion.nome} - {suggestion.porcao} - {suggestion.valorkcal} Kcal
+                </Text>
+                <Button title="+" onPress={() => handleAddToHistory(suggestion)} />
+              </View>
+            ))}
+          </View>
+        )}
+      </View>
+      <ScrollView style={styles.historyScrollView}>
+        <View style={styles.historyContainer}>
+          {history.map((item, index) => (
+            <Text key={index} style={styles.historyItem}>
+              {item.nome} - {item.porcao} - {item.valorkcal} kcal
             </Text>
           ))}
         </View>
-      )}
-      <Button title="Add to history" onPress={handleAddToHistory} />
-      <View style={styles.historyContainer}>
-        {history.map((item, index) => (
-          <Text key={index} style={styles.historyItem}>
-            {item.nome} - {item.porcao} - {item.valorkcal} kcal
-          </Text>
-        ))}
-      </View>
-      <View style={styles.totalKcal}>
+      </ScrollView>
+     {/*  <View style={styles.totalKcal}>
         <Text>Total de kcal: {totalKcal} Kcal</Text>
-      </View>
-    </View>
+      </View> */}
+    </KeyboardAvoidingView>
+
   );
 };
-
 
 const styles = StyleSheet.create({
   container: {
@@ -68,29 +99,53 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
+
+  },
+  containerTop: {
+    paddingTop: 50,
+    flex: 1,
+    height: 60,
+    backgroundColor: 'blue',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+
   },
   suggestionsContainer: {
-    width: '80%',
+    width: '100%',
     marginTop: 10,
-    backgroundColor: '#eee',
+    backgroundColor: '#fff',
   },
   input: {
-    height: 40,
+    height: 30,
+    minWidth: '90%',
     borderColor: 'gray',
     borderWidth: 1,
     width: '80%',
     marginBottom: 10,
+    borderRadius: 10,
+  },
+  suggestionsTop: {
+    width: '90%',
+    backgroundColor: 'green',
   },
   suggestionItem: {
+    width: '100%',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     padding: 5,
   },
-  historyContainer: {
-    width: '80%',
+  historyScrollView: {
+    flex: 2,
+    width: '90%',
     marginTop: 20,
+    padding: 5,
     backgroundColor: 'red',
-    justifyContent: 'space-around',
-
+  },
+  historyContainer: {
+    width: '90%',
+    marginTop: 20,
+    padding: 5,
   },
   historyItem: {
     marginBottom: 5,
@@ -98,8 +153,9 @@ const styles = StyleSheet.create({
   totalKcal: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: 'white',
-    marginTop: 100,
+    color: 'green',
+    marginTop: 10,
+    marginBottom: 10,
   },
 });
 
