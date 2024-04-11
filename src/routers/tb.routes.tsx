@@ -1,3 +1,4 @@
+import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Feather } from '@expo/vector-icons';
 import { FontAwesome6 } from '@expo/vector-icons';
@@ -10,7 +11,7 @@ import ButtonAdd from '../components/buttonadd/ButtonAdd';
 import AddKcal from '../screens/add/options/AddKcal';
 import AddWater from '../screens/add/options/AddAgua';
 import Logout from '../screens/login/Logout';
-
+import Add from "../screens/add/Add";
 const Tab = createBottomTabNavigator();
 
 export default function TabsRoutes() {
@@ -34,7 +35,7 @@ export default function TabsRoutes() {
             />
             <Tab.Screen
                 name='Add'
-                component={AddKcal} 
+                component={Add} 
                 options={{
                     tabBarLabel: '',
                     tabBarIcon: ({ color, size }) => (<ButtonAdd size={size} color={color} />),

@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet, TouchableOpacity, KeyboardAvoidingView, Platform, ScrollView } from 'react-native';
+{/* <TODO>Toda logica de adicionar e procurar no json esta nessa pagina</TODO>
+ */}import React, { useState } from 'react';
+import { View, Text, TextInput, Button, StyleSheet, KeyboardAvoidingView, Platform, ScrollView } from 'react-native';
 import alimentos from '../../../data/alimentos.json';
 
 const AddKcal = () => {
@@ -36,8 +37,6 @@ const AddKcal = () => {
       setSuggestions(filteredAlimentos.slice(0, 10));
     }
   };
-  
-  
 
 return (
     <KeyboardAvoidingView
