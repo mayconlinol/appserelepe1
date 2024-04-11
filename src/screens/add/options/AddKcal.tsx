@@ -10,14 +10,15 @@ const AddKcal = () => {
   const handleAddToHistory = () => {
     const item = alimentos.find(alimento => alimento.nome === inputText);
     if (item) {
-      setHistory([...history, item]);
+      const newHistory = [...history, item];
+      setHistory(newHistory);
       setInputText('');
       setSuggestions([]);
-      const sum = history.reduce((total, { valorkcal }) => total + valorkcal, 0);
+      const sum = newHistory.reduce((total, { valorkcal }) => total + valorkcal, 0);
       setTotalKcal(sum);
     }
   };
-  
+
   // Adicione este estado para armazenar a soma total de kcal
   const [totalKcal, setTotalKcal] = useState(0);
   const handleInputChange = text => {
@@ -93,7 +94,7 @@ const styles = StyleSheet.create({
   },
   historyItem: {
     marginBottom: 5,
-  }, 
+  },
   totalKcal: {
     fontSize: 18,
     fontWeight: 'bold',

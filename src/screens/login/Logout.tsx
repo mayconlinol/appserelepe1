@@ -56,7 +56,7 @@ export default function Logout({ navigation }: { navigation: any }) {
   }, []);
   return (
     <View style={styles.container}>
-      <Text style={{ fontSize: 25 }}>{userName}</Text>
+      {/* <Text style={{ fontSize: 25 }}>aqui{userName}</Text> */}
       <Text style={{ fontSize: 25 }}>{email}</Text>
       <Text style={{ fontSize: 25 }}>Olá!</Text>
       <View>
@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   button: {
-    backgroundColor: Colors.primary,
+    backgroundColor: Colors.alert,
     padding: 10,
     borderRadius: 8,
     height: 55,
