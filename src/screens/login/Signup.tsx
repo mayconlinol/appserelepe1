@@ -11,13 +11,11 @@ import {
 } from "react-native";
 import React, { useState } from "react";
 import Colors from "../../constants/Colors";
-import { Feather } from "@expo/vector-icons";
 import { auth, db } from "../../firebase/firebase";
-import { Entypo } from "@expo/vector-icons";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
 
-const { width, height } = Dimensions.get("window");
+const { height } = Dimensions.get("window");
 let top;
 if (Platform.OS === "ios") {
   top = height * 0.02;
@@ -45,7 +43,7 @@ export default function Signup({ navigation }: { navigation: any }) {
           CreatedAt: new Date().toUTCString(),
         });
       })
-      .then(() => alert("account created successfully 🎉"))
+      .then(() => alert("Conta Criada com Sucesso 🎉"))
       .catch((error: any) => {
         alert(error.message);
       });
@@ -54,7 +52,7 @@ export default function Signup({ navigation }: { navigation: any }) {
   return (
     <View style={styles.container}>
       <View style={styles.loginHeader}>
-        <Text style={styles.loginHeaderText}>Sign up now 🎉</Text>
+        <Text style={styles.loginHeaderText}>Inscreva-se agora 🎉</Text>
       </View>
 
       <KeyboardAvoidingView behavior="padding" style={styles.loginContainer}>
@@ -63,7 +61,7 @@ export default function Signup({ navigation }: { navigation: any }) {
           <Text style={styles.emailText}>Username</Text>
           <TextInput
             style={styles.emailInput}
-            placeholder="Enter your name"
+            placeholder="Nome"
             value={username}
             onChangeText={(text) => setUsername(text)}
           />
@@ -73,7 +71,7 @@ export default function Signup({ navigation }: { navigation: any }) {
           <Text style={styles.emailText}>Email</Text>
           <TextInput
             style={styles.emailInput}
-            placeholder="Enter your email"
+            placeholder="Email"
             value={email}
             onChangeText={(text) => setEmail(text)}
           />
@@ -83,7 +81,7 @@ export default function Signup({ navigation }: { navigation: any }) {
           <Text style={styles.emailText}>Phone Number</Text>
           <TextInput
             style={styles.emailInput}
-            placeholder="Enter your phone number"
+            placeholder="Número de Telefone"
             value={phone?.toString()}
             inputMode="numeric"
             onChangeText={(text) => setPhone(text)}
@@ -94,7 +92,7 @@ export default function Signup({ navigation }: { navigation: any }) {
           <Text style={styles.passwordText}>Password</Text>
           <TextInput
             style={styles.passwordInput}
-            placeholder="Enter your password"
+            placeholder="Senha"
             value={password}
             secureTextEntry={true}
             onChangeText={(text) => setPassword(text)}
@@ -107,15 +105,15 @@ export default function Signup({ navigation }: { navigation: any }) {
         
         <TouchableOpacity onPress={handleSignup} style={{ width: '100%'}}>
         
-        <Button title={loading ? "Creating account..." : "Create Account"} onPress={handleSignup} />
+        <Button title={loading ? "Criando conta..." : "Conta criada"} onPress={handleSignup} />
         
         </TouchableOpacity>
         </View>
 
         <View style={styles.signupGroup}>
-          <Text style={styles.new}>Already have an account?</Text>
+          <Text style={styles.new}>Já tem uma conta?</Text>
           <TouchableOpacity onPress={() => navigation.push("Login")}>
-            <Text style={styles.signup}>Login</Text>
+            <Text style={styles.signup}>Logar</Text>
           </TouchableOpacity>
         </View>
       </KeyboardAvoidingView>

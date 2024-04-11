@@ -10,12 +10,11 @@ import {
 } from "react-native";
 import React, { useState } from "react";
 import Colors from "../../constants/Colors";
-import { Feather } from "@expo/vector-icons";
-import { auth, db } from "../../firebase/firebase";
-import { Entypo } from "@expo/vector-icons";
+import { auth } from "../../firebase/firebase";
+
 import { signInWithEmailAndPassword } from "firebase/auth";
 
-const { width, height } = Dimensions.get("window");
+const { height } = Dimensions.get("window");
 let top;
 if (Platform.OS === "ios") {
   top = height * 0.02;
@@ -31,22 +30,21 @@ export default function Login({ navigation }: { navigation: any }) {
   const handleSignin = async () => {
     setLoading(true);
     await
-    signInWithEmailAndPassword(auth, email.trim(), password)
-      .then((userCredential) => {
-        const user = userCredential.user;
-        setLoading(false);
-        alert("login successful :)");
-      })
-      .catch((error) => {
-        const errorMessage = error.message;
-        alert(errorMessage)
-      });
+      signInWithEmailAndPassword(auth, email.trim(), password)
+        .then((userCredential) => {
+          const user = userCredential.user;
+          setLoading(false);
+        })
+        .catch((error) => {
+          const errorMessage = error.message;
+          alert(errorMessage)
+        });
   };
 
   return (
     <View style={styles.container}>
       <View style={styles.loginHeader}>
-        <Text style={styles.loginHeaderText}>Let's sign you in 🚀</Text>
+        <Text style={styles.loginHeaderText}>Bem Vindo ao SerelepeApp 🚀</Text>
       </View>
 
       <View style={styles.loginContainer}>
@@ -55,17 +53,17 @@ export default function Login({ navigation }: { navigation: any }) {
           <Text style={styles.emailText}>Email</Text>
           <TextInput
             style={styles.emailInput}
-            placeholder="Enter your email"
+            placeholder="Seu Email"
             value={email}
             onChangeText={(text) => setEmail(text)}
           />
         </View>
         {/* Password */}
         <View style={styles.passwordContainer}>
-          <Text style={styles.passwordText}>Password</Text>
+          <Text style={styles.passwordText}>Senha</Text>
           <TextInput
             style={styles.passwordInput}
-            placeholder="Enter your password"
+            placeholder="Sua Senha"
             value={password}
             secureTextEntry={true}
             onChangeText={(text) => setPassword(text)}
@@ -74,19 +72,19 @@ export default function Login({ navigation }: { navigation: any }) {
         {/* Forgot Password */}
         <View style={styles.forgotContainer}>
           <TouchableOpacity onPress={() => navigation.push("Forgot")}>
-            <Text style={styles.forgotText}>Forgot Password?</Text>
+            <Text style={styles.forgotText}>Esqueceu a Senha?</Text>
           </TouchableOpacity>
         </View>
         {/* Login Button */}
         <View style={styles.loginButton}>
-        <TouchableOpacity onPress={handleSignin} style={{ width: '100%' }}>
-        <Button title={loading ? "Loading" : "Login"} onPress={handleSignin} />
-        </TouchableOpacity>
+          <TouchableOpacity onPress={handleSignin} style={{ width: '100%' }}>
+              <Text style={styles.loginButtonText}>{loading ? "Entrando..." : "Entrar"}</Text>
+          </TouchableOpacity>
         </View>
         <View style={styles.signupGroup}>
-          <Text style={styles.new}>New here?</Text>
+          <Text style={styles.new}>Novo por aqui?</Text>
           <TouchableOpacity onPress={() => navigation.push("Signup")}>
-            <Button title="Sign Up" onPress={() => navigation.push("Signup")} />
+            <Button title="Cadastre-se" onPress={() => navigation.push("Signup")} />
           </TouchableOpacity>
         </View>
       </View>
@@ -111,6 +109,10 @@ const styles = StyleSheet.create({
   },
   loginHeader: {
     marginTop: 20,
+    alignContent: "center",
+    justifyContent: "center",
+    alignItems: "center",
+
   },
   loginHeaderText: {
     fontSize: 36,
@@ -167,14 +169,15 @@ const styles = StyleSheet.create({
     width: "100%",
     height: 50,
     backgroundColor: Colors.primary,
-    borderRadius: 8,
+    borderRadius: 20,
     justifyContent: "center",
     alignItems: "center",
   },
   loginButtonText: {
-    fontSize: 16,
+    fontSize: 18,
     fontWeight: "bold",
     color: Colors.white,
+    alignSelf: "center",
   },
   signupGroup: {
     flexDirection: "row",
@@ -192,5 +195,5 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "500",
     marginRight: 5,
-  },
+  }
 });

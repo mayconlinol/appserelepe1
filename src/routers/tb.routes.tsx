@@ -9,7 +9,7 @@ import Historico from '../screens/history/Historico';
 import ButtonAdd from '../components/buttonadd/ButtonAdd';
 import AddKcal from '../screens/add/options/AddKcal';
 import AddWater from '../screens/add/options/AddAgua';
-import Dashboard from '../screens/login/Dashboard';
+import Logout from '../screens/login/Logout';
 
 const Tab = createBottomTabNavigator();
 
@@ -51,7 +51,7 @@ export default function TabsRoutes() {
             />
             {<Tab.Screen
                 name='perfil'
-                component={Dashboard}
+                component={Logout}
                 options={{
                     tabBarIcon: ({ color, size }) => <Feather name='user' color={color} size={size} />,
                     tabBarLabel: ''

@@ -12,10 +12,9 @@ import { doc, getDoc } from "firebase/firestore";
 import { getAuth, signOut, } from "firebase/auth";
 
 
-export default function Dashboard({ navigation }: { navigation: any }) {
+export default function Logout({ navigation }: { navigation: any }) {
   const [userName, setUserName] = useState('');
   const [email, setEmail] = useState('');
-  /* const [userInfo, setUserInfo] = useState<any | undefined>(null); */
   const handleSignout = async () => {
 
 
@@ -59,10 +58,10 @@ export default function Dashboard({ navigation }: { navigation: any }) {
     <View style={styles.container}>
       <Text style={{ fontSize: 25 }}>{userName}</Text>
       <Text style={{ fontSize: 25 }}>{email}</Text>
-      <Text style={{ fontSize: 25 }}>Welcome Fam!</Text>
+      <Text style={{ fontSize: 25 }}>Olá!</Text>
       <View>
         <TouchableOpacity style={styles.button} onPress={handleSignout}>
-          <Text style={{ color: Colors.white, fontSize: 20 }}>Sign out</Text>
+          <Text style={{ color: Colors.white, fontSize: 20 }}>Sair</Text>
         </TouchableOpacity>
       </View>
     </View>
