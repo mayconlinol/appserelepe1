@@ -7,7 +7,7 @@ import { MaterialIcons } from '@expo/vector-icons';
 import Home from '../screens/home/Home';
 import Metas from '../screens/meta/Metas';
 import Historico from '../screens/history/Historico';
-import ButtonAdd from '../components/buttonadd/ButtonAdd';
+import ButtonAdd from '../components/ButtonAdd';
 import AddKcal from '../screens/add/options/AddKcal';
 import AddWater from '../screens/add/options/AddAgua';
 import Logout from '../screens/login/Logout';

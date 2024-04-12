@@ -1,9 +1,14 @@
+import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import Header from '../../components/HeaderHistory';
 
 export default function Historico() {
   return (
+    <View style={{ flex: 1}}>
+      <Header/>
     <View style={styles.container}>
-      <Text style= {styles.title}>Historico</Text>
+      <Text style= {styles.title}>Historico conteudo</Text>
+    </View>
     </View>
   );
 }
