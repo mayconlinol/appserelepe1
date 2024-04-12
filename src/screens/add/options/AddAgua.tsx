@@ -32,7 +32,7 @@ const AddWater = () => {
         style={styles.textInput}
         onChangeText={text => setValue(text)}
         value={value}
-        keyboardType="numeric"
+        keyboardType="numeric"  
       />
       <Button
         title="adicionar água"
@@ -55,18 +55,23 @@ const AddWater = () => {
 const styles = StyleSheet.create({
   container: {
     padding: 20,
-    marginTop: 50,
+    marginTop: 10,
   },
   textInput: {
     height: 40,
+    width: 100,
     borderColor: 'gray',
-    borderWidth: 1,
+    borderWidth: 2,
     marginBottom: 20,
+    alignItems: 'center', 
+    justifyContent: 'center'
+    
   },
   historyItem: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+    marginVertical: 3,
   },
 });
 
