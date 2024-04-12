@@ -81,7 +81,5 @@ const styles = StyleSheet.create({
     height: 55,
     justifyContent: "center",
     alignItems: "center",
-    width: 200,
-    marginTop: 50,
-  },
+    width: 200,}
 });

@@ -28,17 +28,19 @@ const AddWater = () => {
   return (
     <View style={styles.container}>
       <Text style={{ marginTop: 20 }}>Soma: {sum}ML</Text>
+      <View style={styles.containerInput}>
       <TextInput
         style={styles.textInput}
         onChangeText={text => setValue(text)}
         value={value}
-        keyboardType="numeric"
+        keyboardType="numeric"  
       />
       <TouchableOpacity style={styles.botaoCopo}
         onPress={handlePress}>
         <ButtonCopo/>
       </TouchableOpacity>
-      
+      </View>
+
       <Button
         title="adicionar água"
         onPress={handlePress}
@@ -67,18 +69,30 @@ const styles = StyleSheet.create({
   },
   textInput: {
     height: 40,
-    width: 90,
+    width: 100,
     borderColor: 'gray',
     borderWidth: 2,
-    marginBottom: 20,
+    alignItems: 'center', 
+    justifyContent: 'center',
+    marginLeft: '36%',
+    
   },
   historyItem: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+    marginVertical: 3,
   },
   botaoCopo: {
-    backgroundColor: 'blue',
+    /* backgroundColor: 'blue', */
+  },
+  containerInput: {
+    flexDirection: 'row',
+    width: '90%',
+    /* backgroundColor: 'yellow', */
+    alignItems: 'center',
+    margin: 15,
+    gap: 40,
   }
 });
 
