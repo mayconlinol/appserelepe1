@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, TouchableOpacity, StyleSheet } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import Colors from "../../constants/Colors";
 
 const BackButton = () => {
     return (
@@ -9,7 +10,7 @@ const BackButton = () => {
                 onPress={() => { }}
                 style={{ flexDirection: 'row', alignItems: 'center' }}
             >
-                <MaterialCommunityIcons name="cup" size={24} color="black" />
+                <MaterialCommunityIcons name="cup" size={28} color={Colors.lightBlue} />
             </TouchableOpacity>
         </View>
     );
