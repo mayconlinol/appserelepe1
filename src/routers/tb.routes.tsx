@@ -35,7 +35,7 @@ export default function TabsRoutes() {
             />
             <Tab.Screen
                 name='Add'
-                component={Add} 
+                component={AddWater} 
                 options={{
                     tabBarLabel: '',
                     tabBarIcon: ({ color, size }) => (<ButtonAdd size={size} color={color} />),
