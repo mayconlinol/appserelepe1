@@ -72,9 +72,11 @@ const styles = StyleSheet.create({
     width: 100,
     borderColor: 'gray',
     borderWidth: 2,
+
     alignItems: 'center', 
     justifyContent: 'center',
     marginLeft: '36%',
+
     
   },
   historyItem: {
