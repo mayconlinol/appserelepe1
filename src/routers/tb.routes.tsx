@@ -44,7 +44,7 @@ export default function TabsRoutes() {
             />
             <Tab.Screen
                 name='historico'
-                component={Historico}
+                component={AddWater}
                 options={{
                     tabBarIcon: ({ color, size }) => <FontAwesome6 name="clock-rotate-left" size={24} color={color} />,
                     tabBarLabel: ''
