@@ -3,26 +3,20 @@ import { View, TouchableOpacity, StyleSheet } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import Colors from "../../constants/Colors";
 
-const BackButton = () => {
+const ButtonCopo = ({ onPress }) => {
     return (
-        <View style={styles.container}>
-            <TouchableOpacity
-                onPress={() => { }}
-                style={{ flexDirection: 'row', alignItems: 'center' }}
-            >
-                <MaterialCommunityIcons name="cup" size={28} color={Colors.lightBlue} />
-            </TouchableOpacity>
-        </View>
+        <TouchableOpacity style={styles.botaoCopo} onPress={onPress}>
+            <MaterialCommunityIcons name="cup" size={28} color={Colors.lightBlue} />
+        </TouchableOpacity>
     );
 };
 const styles = StyleSheet.create({
-    container: {
+    botaoCopo: {
         width: 24,
         height: 24,
-        margin: 10,
         padding: 0,
 
     }
 })
 
-export default BackButton;
+export default ButtonCopo;

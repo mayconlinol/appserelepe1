@@ -16,6 +16,14 @@ const AddWater = () => {
     }
     setValue('');
   };
+  const handlePressCup = () => {
+    const newValue = 250;
+    if (!isNaN(newValue)) {
+      setHistory([{ value: newValue, id: Math.random().toString() }, ...history]);
+      setSum(sum + newValue);
+    }
+    setValue('');
+  };
 
 
   const handleDelete = (id) => {
@@ -35,9 +43,9 @@ const AddWater = () => {
         value={value}
         keyboardType="numeric"  
       />
-      <TouchableOpacity style={styles.botaoCopo}
-        onPress={handlePress}>
-        <ButtonCopo/>
+      <TouchableOpacity style={styles.botaoCopo}>
+          <ButtonCopo onPress={handlePressCup} />
+            <Text style={styles.textCup}>+250ML</Text>
       </TouchableOpacity>
       </View>
 
@@ -85,6 +93,9 @@ const styles = StyleSheet.create({
   },
   botaoCopo: {
     /* backgroundColor: 'blue', */
+    alignItems: 'center',
+    /* height: 24,
+    width: 24,  */
   },
   containerInput: {
     flexDirection: 'row',
@@ -93,7 +104,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     margin: 15,
     gap: 40,
-  }
+  },
+  textCup: {
+    fontSize: 9,
+    /* backgroundColor: 'green', */
+    
+  },
 });
 
 export default AddWater;
