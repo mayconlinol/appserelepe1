@@ -1,9 +1,10 @@
 import { StyleSheet, Text, View } from 'react-native';
-
+import ButtonIniciar from '../../components/Button/ButtonIniciar';
+import React from 'react';
 export default function Feed() {
   return (
     <View style={styles.container}>
-      <Text style= {styles.title}>Home </Text>
+      <ButtonIniciar />
     </View>
   );
 }
@@ -15,8 +16,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  title:{
-    fontSize:24,
+  title: {
+    fontSize: 24,
     fontWeight: 'bold',
   }
 });
